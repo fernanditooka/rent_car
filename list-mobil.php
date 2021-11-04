@@ -32,57 +32,57 @@ session_start();
                </form>
 
                <ul class="list-group">
-                   <!-- <?php
+                   <?php
                    include "connection.php"; 
-                //    if(isset($_GET["search"])){
-                //        $cari = $_GET["search"];
-                //        $sql = "select * from buku 
-                //        where judul_buku like '%$cari%' 
-                //        or penulis like '%$cari%'
-                //        or penerbit like '%$cari%'
-                //        or genre like '%$cari%'";
-                //    }else{
-                //        $sql = "select * from buku";
-                //    }
+                   if(isset($_GET["search"])){
+                       $cari = $_GET["search"];
+                       $sql = "select * from mobil 
+                       where nomor_mobil like '%$cari%' 
+                       or merk like '%$cari%'
+                       or jenis like '%$cari%'
+                       or tahun_pembuatan like '%$cari%' or warna like '%$cari'";
+                   }else{
+                       $sql = "select * from mobil";
+                   }
 
                    # eksekusi SQL
-                //    $hasil = mysqli_query($connect, $sql);
-                //    while ($mobil = mysqli_fetch_array($hasil)) {
-                //        ?> -->
+                   $hasil = mysqli_query($connect, $sql);
+                   while ($mobil = mysqli_fetch_array($hasil)) {
+                       ?>
                        <li class="list-group-item">
                            <div class="row">
                                <div class="col-lg-4">
                                    <!-- untuk gambar -->
-                                   <img src="foto/<?=$mobil["foto"]?>"
+                                   <img src="foto/fortuner.jpg?>"
                                    width="300" />
                                </div>
                                <div class="col-lg-6">
                                    <!-- untuk deskripsi mobil -->
-                                   <h5><?=$mobil["nomor_mobil"]?></h5>
-                                   <h6>Merk: <?=$mobil["merk"]?></h6>
+                                   <h5><?=$mobil["merk"]?></h5>
+                                   <h6>Nomor mobil: <?=$mobil["nomor_mobil"]?></h6>
                                    <h6>Jenis Mobil: <?=$mobil["jenis"]?></h6>
                                    <h6>Warna: <?=$mobil["warna"]?></h6>
                                    <h6>Tahun Pembuatan: <?=$mobil["tahun_pembuatan"]?></h6>
                                </div>
-                               <!-- <div class="col-lg-2">
-                                   <a href="form-buku.php?isbn=<?=$buku["isbn"]?>">
+                               <div class="col-lg-2">
+                                   <a href="form-mobil.php?id_mobil=<?=$mobil["id_mobil"]?>">
                                         <button class="btn btn-info btn-block">
                                             Edit
                                         </button>
                                     </a>
 
-                                    <a href="process-buku.php?isbn=<?=$buku["isbn"]?>"
+                                    <a href="process-mobil.php?isbn=<?=$mobil["id_mobil"]?>"
                                     onclick="return confirm('Are you sure?')">
                                         <button class="btn btn-danger btn-block">
                                             Hapus
                                         </button>
                                     </a>
                                    
-                               </div> -->
+                               </div>
                            </div>
                        </li>
                        <?php
-                //    }
+                }
                    ?>
                </ul>
            </div>
